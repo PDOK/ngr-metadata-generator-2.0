@@ -41,5 +41,5 @@
 <!-- https://geonovum.github.io/Metadata-ISO19119/#gekoppelde-bron -->
 <!-- Het attribuut xlink:href moet een URI bevatten naar het MD_DataIdentification deel in de XML van het metadata record van de dataset-->
 {% for dataset in linked_datasets -%}
-<srv:operatesOn uuidref="{{dataset.dataset_md_identifier}}" xlink:href="{{ngr_host}}/geonetwork/srv/dut/csw?SERVICE=CSW&amp;version=2.0.2&amp;REQUEST=GetRecordById&amp;ID={{dataset.dataset_md_identifier}}&amp;OUTPUTSCHEMA=http://www.isotc211.org/2005/gmd&amp;ELEMENTSETNAME=full#MD_DataIdentification"/>
+<srv:operatesOn uuidref="{{dataset.dataset_md_identifier}}" xlink:href="{{ngr_host}}/geonetwork/srv/dut/csw?service=CSW&amp;request=GetRecordById&amp;version=2.0.2&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;elementSetName=full&amp;id={{dataset.dataset_md_identifier}}#MD_DataIdentification"/>
 {%- endfor %}
