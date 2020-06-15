@@ -19,6 +19,28 @@
                         </gmd:description>
                     </gmd:CI_OnlineResource>
                 </gmd:onLine>
+                {% for layer in layers -%}
+                <gmd:onLine>
+                    <gmd:CI_OnlineResource>
+                        <gmd:linkage>
+                            <!-- https://geonovum.github.io/Metadata-ISO19119/#url -->
+                            <!-- Verwijzing naar het Capabilities document van de service-->
+                            <gmd:URL>{{service_capabilities_url}}</gmd:URL>
+                        </gmd:linkage>
+                        <gmd:protocol>
+                            <!-- https://geonovum.github.io/Metadata-ISO19119/#protocol -->
+                            <gmx:Anchor xlink:href="{{service_protocol_url}}">{{service_protocol}}</gmx:Anchor>
+                        </gmd:protocol>
+                        <gmd:name>
+                            <gco:CharacterString>{{layer}}</gco:CharacterString>
+                         </gmd:name>
+                        <gmd:description>
+                            <!-- https://geonovum.github.io/Metadata-ISO19119/#omschrijving -->
+                            <gmx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/OnLineDescriptionCode/accessPoint">accessPoint</gmx:Anchor>
+                        </gmd:description>
+                    </gmd:CI_OnlineResource>
+                </gmd:onLine>
+                {%- endfor %}
             </gmd:MD_DigitalTransferOptions>
         </gmd:transferOptions>
     </gmd:MD_Distribution>
